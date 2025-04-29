@@ -6,11 +6,9 @@
     "express": "^4.18.2"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "ts-node server.ts",
-    "types": "tsc",
-    "client": "node scripts/start-client.js",
-    "install": "cd client && yarn install && cd .."
+    "client": "yarn --cwd client start",
+    "server": "yarn --cwd server start",
+    "start": "concurrently \"yarn server\" \"yarn client\""
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
