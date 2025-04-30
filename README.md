@@ -86,3 +86,27 @@ We believe strong TS typing will make your code much more robust.
 We believe Prettier makes your life easier! There is an example .prettierrc included in the `frontend` directory - feel free to tweak the settings if you'd prefer.
 
 You might need to give your IDE a nudge to pick the settings up - [here's an example](https://stackoverflow.com/a/58669550/4388938) of how to do that with VS Code
+
+### Project evaluation
+
+### How you approached the challenge ###
+
+I began by designing and implementing the frontend, as this allowed me to visualize the user experience early and understand the kinds of data interactions required. I aimed for a clean, intuitive layout and used the Chakra UI library for styling and layout consistency, particularly to match the existing line graph component. The components were modularized across separate files to keep the codebase maintainable and easier to scale.
+
+For input handling, I opted to use sliders for parameters like deposit amount and interest rate, as they offer an interactive experience with flexible input ranges. This was a design decision that could certainly be refined based on future accessibility or precision requirements.
+
+Once the frontend was scaffolded, I moved to the backend. I structured the server side using Express and organized the logic into controllers, routes, and utility functions. I implemented two endpoints: one to return the full projection history, and another to return a specific projection at a given point in time — this aligned well with the frontend's summary panel design. After the backend was in place, I integrated it into the frontend using appropriate `useEffect` hooks in `App.tsx` to fetch and sync the data.
+
+### What bits of your solution you like ###
+
+I particularly like the ability for users to retrieve projection summaries for specific year/month combinations without crowding the graph — it allows exploration of long-term outcomes beyond the default 50-year timeline. Including the total interest gain was a simple but valuable addition for users wanting insight into compound returns.
+
+I also added a basic level of responsiveness to ensure the layout adapts to different window sizes. While full mobile optimization wasn't feasible within the timeframe, I wanted to demonstrate awareness of responsive and accessible design considerations — something I prioritize in longer-term projects.
+
+### What bits of your solution you’d like to improve upon or would develop next ###
+
+I'd like to build on the accessibility of the interface to meet WCAG 2.2 standards more fully — this would include enhancing keyboard navigation, improving color contrast, and making layout elements more adaptable across devices.
+
+From a technical perspective, I would improve code modularity further. For instance, the compound interest calculation logic could be better abstracted and shared across functions in the backend to reduce duplication. I would also consider adding unit tests for the core financial logic to ensure correctness over time, especially if new features or edge cases are introduced.
+
+Finally, a next logical step would be adding user input validation and perhaps even visual feedback (e.g. tooltips or warnings) to guide user interaction and prevent invalid states.
