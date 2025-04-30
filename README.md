@@ -87,7 +87,7 @@ We believe Prettier makes your life easier! There is an example .prettierrc incl
 
 You might need to give your IDE a nudge to pick the settings up - [here's an example](https://stackoverflow.com/a/58669550/4388938) of how to do that with VS Code
 
-### Project evaluation
+# Project evaluation
 
 ## How you approached the challenge ##
 
