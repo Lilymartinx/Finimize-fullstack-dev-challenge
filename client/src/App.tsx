@@ -24,6 +24,65 @@ function App() {
     const [totalGrowth, setTotalGrowth] = useState(0)
     const [totalGain, setTotalGain] = useState(0)
 
+    async function updateProjection(
+        initial: number,
+        monthlyDeposit: number,
+        interestRate: number,
+        totalYears: number,
+    ) {
+        try {
+            const response = await axios.get('http://localhost:3001/api/projection', {
+            params: {
+                initial,
+                monthlyDeposit,
+                interestRate,
+                totalYears,
+            },
+            });
+        
+            const { xAxis, yAxis } = response.data;
+            setProjectionData({ xAxis, yAxis });
+        } catch (error) {
+            console.error('Failed to fetch projection:', error);
+        }
+    }
+
+    async function updateSpecificProjection(
+        initial: number,
+        monthlyDeposit: number,
+        interestRate: number,
+        yearsRequested: number,
+        monthsRequested: number
+    ) {
+        try {
+            const response = await axios.get('http://localhost:3001/api/specific-projection', {
+            params: {
+                initial,
+                monthlyDeposit,
+                interestRate,
+                yearsRequested,
+                monthsRequested,
+            },
+            });
+        
+            const { total, gain } = response.data;
+            setTotalGrowth(total);
+            setTotalGain(gain);
+        } catch (error) {
+            console.error('Failed to fetch projection:', error);
+        }
+    }
+
+    useEffect(() => {
+        // When interest, deposit or initial payment change update projections
+        updateProjection(initial, deposit, rate, totalYears);
+    }, [initial, deposit, rate, totalYears]);
+
+
+    useEffect(() => {
+        // When interest, deposit or initial payment or specific projection years/months change, update specific totals
+        updateSpecificProjection(initial, deposit, rate, yearsRequested, monthsRequested);
+    }, [initial, deposit, rate, yearsRequested, monthsRequested]);
 
     return (
         <ChakraProvider theme={defaultTheme}>
