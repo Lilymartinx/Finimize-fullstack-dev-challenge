@@ -8,6 +8,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import theme from '../theme'
@@ -25,6 +26,7 @@ type Props = {
 const LineChart = ({ xAxisData, yAxisData, title, xLabel, yLabel }: Props) => {
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,
@@ -57,19 +59,21 @@ const LineChart = ({ xAxisData, yAxisData, title, xLabel, yLabel }: Props) => {
     }
 
     return (
-        <Line
+        <Box width="100%" height="100%">
+            <Line
             data={{
                 labels: xAxisData,
                 datasets: [
-                    {
-                        backgroundColor: theme.colors.blue100,
-                        borderColor: theme.colors.primary,
-                        data: yAxisData,
-                    },
+                {
+                    backgroundColor: theme.colors.blue100,
+                    borderColor: theme.colors.primary,
+                    data: yAxisData,
+                },
                 ],
             }}
             options={options}
-        />
+            />
+        </Box>
     )
 }
 
