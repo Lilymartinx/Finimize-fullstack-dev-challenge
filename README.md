@@ -89,6 +89,8 @@ You might need to give your IDE a nudge to pick the settings up - [here's an exa
 
 # Project evaluation
 
+NOTE- screenshots of the site have been saved under `website-images`
+
 ## How you approached the challenge ##
 
 I began by designing and implementing the frontend, as this allowed me to visualize the user experience early and understand the kinds of data interactions required. I aimed for a clean, intuitive layout and used the Chakra UI library for styling and layout consistency, particularly to match the existing line graph component. The components were modularized across separate files to keep the codebase maintainable and easier to scale.
