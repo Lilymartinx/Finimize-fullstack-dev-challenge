@@ -50,7 +50,6 @@ const GrowthSummaryBox: React.FC<Props> = ({
                 color="black"
                 borderRadius="md"
                 type="number"
-                max={50}
                 min={0}
             />
             <Text fontSize="lg">years</Text>
