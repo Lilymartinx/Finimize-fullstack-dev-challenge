@@ -1,14 +1,23 @@
 import express from "express";
+import cors from "cors";
+import projectionRoutes from "./routes/projection";
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.set("port", process.env.PORT || 3001);
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-// Express only serves static assets in production 
+// API routes
+app.use("/api", projectionRoutes);
+
+// Serve static assets in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.listen(app.get("port"), () => {
-  console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
+app.listen(PORT, () => {
+  console.log(`Find the server at: http://localhost:${PORT}/`);
 });
+
