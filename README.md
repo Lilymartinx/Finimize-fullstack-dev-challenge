@@ -111,4 +111,6 @@ I'd like to build on the accessibility of the interface to meet WCAG 2.2 standar
 
 From a technical perspective, I would improve code modularity further. For instance, the compound interest calculation logic could be better abstracted and shared across functions in the backend to reduce duplication. I would also consider adding unit tests for the core financial logic to ensure correctness over time, especially if new features or edge cases are introduced.
 
+Given more time, I would create a centralized theme configuration to ensure consistent styling across the site — including a shared color palette and spacing system used by all components. This would improve maintainability, support design consistency, and make future adjustments more efficient.
+
 Finally, a next logical step would be adding user input validation and perhaps even visual feedback (e.g. tooltips or warnings) to guide user interaction and prevent invalid states.
